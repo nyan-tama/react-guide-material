@@ -7,6 +7,8 @@ const Example = () => {
   //   className: "greeting"
   // }, "Hello World");
 
+  // JSXはバベルによって、React.createElement()に変換される
+  // それが仮想DOMになる
   const sample2 = (
     <div>
       <h1>Hello!</h1>
