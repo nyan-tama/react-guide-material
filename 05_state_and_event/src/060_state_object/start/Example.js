@@ -9,8 +9,9 @@ const Example = () => {
     setPerson({ name: e.target.value, age: person.age })
   }
   const changeAge = (e) => {
-    //オブジェクトのままわたす
-    setPerson({ name: person.name, age: e.target.value })
+    //スプレッド構文でオブジェクトを展開して、ageだけ上書きする
+    //stateオブジェクトの中身を変更するのではなく、新しいオブジェクトを作成して、それをstateにセットする
+    setPerson({ ...person, age: e.target.value })
   }
   const reset = () => {
     //オブジェクトのままわたす
