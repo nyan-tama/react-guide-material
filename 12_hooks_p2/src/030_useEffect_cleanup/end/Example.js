@@ -6,7 +6,7 @@ const Example = () => {
 
   return (
     <>
-      {isDisp && <Timer/>}
+      {isDisp && <Timer />}
       <button onClick={() => setIsDisp(prev => !prev)}>トグル</button>
     </>
   )
@@ -18,7 +18,7 @@ const Timer = () => {
     // console.log('init');
     let intervalId = null;
     intervalId = window.setInterval(() => {
-      console.log('interval called');
+      // console.log('interval called');
       setTime(prev => prev + 1);
     }, 1000);
     return () => {
@@ -26,10 +26,10 @@ const Timer = () => {
       // console.log('end');
     }
   }, [])
-  
+
   useEffect(() => {
     // console.log('updated');
-    
+
     document.title = 'counter:' + time;
     window.localStorage.setItem('time-key-end', time);
 
@@ -44,7 +44,7 @@ const Timer = () => {
       <time>{time}</time>
       <span>秒経過</span>
     </h3>
-    );
+  );
 };
 
 export default Example;

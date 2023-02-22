@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
+import Random from "./Random";
 const Example = () => {
   const [isDisp, setIsDisp] = useState(true);
 
   return (
     <>
-      {isDisp && <Timer/>}
+      {isDisp && <Timer />}
       <button onClick={() => setIsDisp(prev => !prev)}>トグル</button>
     </>
   )
@@ -24,10 +25,10 @@ const Timer = () => {
       // console.log('end');
     }
   }, [])
-  
+
   useEffect(() => {
     // console.log('updated');
-    
+
     document.title = 'counter:' + time;
     window.localStorage.setItem('time-key', time);
 
@@ -36,12 +37,19 @@ const Timer = () => {
     }
   }, [time]);
 
+  // useEffectよりも先に実行される
+  useLayoutEffect(() => {
+    const _time = parseInt(window.localStorage.getItem("time-key"))
+    if (!isNaN(_time)) setTime(_time);
+  }, [])
+
   return (
     <h3>
       <time>{time}</time>
       <span>秒経過</span>
+      <Random />
     </h3>
-    );
+  );
 };
 
 export default Example;
