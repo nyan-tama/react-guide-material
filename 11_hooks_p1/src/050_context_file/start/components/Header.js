@@ -4,6 +4,8 @@ const Header = () => {
     const [theme, setTheme] = useTheme();
     const THEMES = ['light', 'dark', 'red'];
     const changeTheme = (e) => setTheme(e.target.value)
+
+    console.log("Header rendered")
     return (
         <header className={`content-${theme}`}>
             {THEMES.map(_theme => {
