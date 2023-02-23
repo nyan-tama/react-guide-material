@@ -1,10 +1,15 @@
-import { useCounterDispatch } from "../context/CounterContext";
+import { useDispatch } from "react-redux";
 
-const CounterButton = ({calcType, step}) => {
-    
-    const dispatch = useCounterDispatch();
-    
+// import { useCounterDispatch } from "../context/CounterContext";
+
+const CounterButton = ({ calcType, step }) => {
+
+    //useDispatchでdispatchを取得
+    const dispatch = useDispatch();
+    // const dispatch = useCounterDispatch();
+
     const clickHandler = () => {
+        //reducerにactionを渡す
         dispatch({ type: calcType, step });
     }
 
